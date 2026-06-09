@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--pd-bg-main);
+}
+
+.card {
+  background: var(--pd-bg-white);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 1.5rem 0;
+}
+
+.card input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--pd-border-mid);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--pd-text-primary);
+  background: var(--pd-bg-main);
+  outline: none;
+}
+
+.card button[type="submit"] {
+  background: var(--pd-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+}
+
+.card input:focus {
+  border-color: var(--pd-primary);
+  background: var(--pd-bg-white);
+  box-shadow: 0 0 0 3px var(--pd-primary-light);
+}
+
+.card span {
+  color: var(--pd-primary);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.card span:hover {
+  text-decoration: underline;
+}
