@@ -31,6 +31,14 @@
 
   --pd-secondary: #4F46E5;
   --pd-secondary-light: #EEF2FF;
+
+  --pd-error: #C0392B;
+  --pd-error-bg: #FDECEC;
+  --pd-error-border: #F5C6C6;
+
+  --pd-success: #1A7A45;
+  --pd-success-bg: #D4EDDF;
+  --pd-success-border: #A8D5B8;
 }
 
 * {

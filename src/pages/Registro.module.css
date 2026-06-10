@@ -60,3 +60,29 @@
 .card span:hover {
   text-decoration: underline;
 }
+
+.errorCampo {
+  color: var(--pd-error);
+  background: var(--pd-error-bg);
+  border: 1px solid var(--pd-error-border);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+  margin-top: -4px;
+}
+
+.exitoCard {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--pd-success-bg);
+  border: 1px solid var(--pd-success-border);
+  border-left: 3px solid var(--pd-success);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--pd-success);
+  font-weight: 500;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
