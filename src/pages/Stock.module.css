@@ -59,6 +59,7 @@
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid var(--pd-border);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
 .tabla thead tr {
@@ -84,11 +85,20 @@
   background: var(--pd-bg-white);
 }
 
+.tabla tbody tr:hover {
+  background: var(--pd-primary-light);
+  transition: background 0.12s ease;
+}
+
 .tabla tbody td {
   padding: 12px 16px;
   font-size: 14px;
   color: var(--pd-text-body);
   border-bottom: 1px solid var(--pd-border);
+}
+
+.tabla tbody tr:last-child td {
+  border-bottom: none;
 }
 
 /* Filas de alerta */
@@ -108,10 +118,11 @@
   color: var(--pd-text-body);
   border: 1px solid var(--pd-border-mid);
   border-radius: 6px;
-  padding: 6px 12px;
+  padding: 5px 12px;
   font-size: 13px;
   cursor: pointer;
-  margin-right: 8px;
+  margin-right: 6px;
+  transition: background 0.12s ease;
 }
 
 .btnEditar:hover {
@@ -123,13 +134,14 @@
   color: #fff;
   border: none;
   border-radius: 6px;
-  padding: 6px 12px;
+  padding: 5px 12px;
   font-size: 13px;
   cursor: pointer;
+  transition: opacity 0.12s ease;
 }
 
 .btnEliminar:hover {
-  opacity: 0.85;
+  opacity: 0.82;
 }
 
 /* Modal */
@@ -191,19 +203,32 @@
   flex-direction: column;
 }
 
-.grilla input {
+.grilla input,
+.grilla select {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid var(--pd-border);
   border-radius: 8px;
   font-size: 14px;
+  font-family: inherit;
   color: var(--pd-text-body);
   background: var(--pd-bg-white);
   outline: none;
+  appearance: auto;
 }
 
-.grilla input:focus {
+.grilla input:focus,
+.grilla select:focus {
   border-color: var(--pd-primary);
+}
+
+.grilla label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--pd-text-muted);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .error {

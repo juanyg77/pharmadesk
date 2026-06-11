@@ -18,8 +18,9 @@ function ModalMedicamento({ productoEditando, onGuardar, onCerrar }) {
   const [errorPrecioVenta, setErrorPrecioVenta] = useState('');
   const [errorStockMinimo, setErrorStockMinimo] = useState('');
 
-  // Cuando productoEditando cambia, carga sus datos en los campos (o los limpia si es null)
+
   useEffect(() => {
+    
     if (productoEditando) {
       setNombre(productoEditando.nombre);
       setLaboratorio(productoEditando.laboratorio);
