@@ -1,6 +1,9 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
-const useStockStore = create((set) => ({
+const useStockStore = create(
+  persist(
+    (set) => ({
   productos: [
     {
       id: 1,
@@ -54,6 +57,9 @@ const useStockStore = create((set) => ({
     set((state) => ({
       productos: state.productos.map((p) => (p.id === id ? { ...p, ...datos } : p)),
     })),
-}));
+    }),
+    { name: 'pharma-stock' }
+  )
+);
 
 export default useStockStore;

@@ -1,7 +1,7 @@
 .sidebar {
   width: 250px;
   min-height: 100vh;
-  background-color: #1a1a2e;
+  background-color: var(--pd-sidebar-bg);
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -10,68 +10,79 @@
 
 .header {
   padding: 1.5rem 1.25rem 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .header h2 {
-  color: #ffffff;
-  font-size: 1.25rem;
-  margin: 0 0 0.25rem;
-  letter-spacing: 0.5px;
+  color: var(--pd-sidebar-text-active);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.2rem;
+  letter-spacing: 0.3px;
 }
 
 .header p {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.8rem;
+  color: var(--pd-sidebar-text);
+  font-size: 0.78rem;
   margin: 0;
+  opacity: 0.8;
 }
 
 .nav {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 2px;
   padding: 1rem 0.75rem;
   flex: 1;
 }
 
 .nav a {
-  color: rgba(255, 255, 255, 0.65);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--pd-sidebar-text);
   text-decoration: none;
   padding: 0.6rem 0.75rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  transition: background 0.15s, color 0.15s;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .nav a:hover {
-  background-color: rgba(255, 255, 255, 0.06);
-  color: #ffffff;
+  background-color: var(--pd-sidebar-active);
+  color: var(--pd-sidebar-text-active);
 }
 
 .nav a.active {
-  background-color: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+  background-color: var(--pd-sidebar-active);
+  color: var(--pd-sidebar-text-active);
   font-weight: 500;
 }
 
 .footer {
   padding: 1rem 0.75rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .footer button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   width: 100%;
-  padding: 0.6rem;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 0.85rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--pd-error);
+  border: 1px solid var(--pd-error);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-family: inherit;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .footer button:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
+  background-color: #a93226;
+  border-color: #a93226;
+  box-shadow: 0 2px 8px rgba(192, 57, 43, 0.4);
 }

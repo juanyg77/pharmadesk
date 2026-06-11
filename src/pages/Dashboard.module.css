@@ -1,0 +1,106 @@
+.header {
+  margin-bottom: 2.25rem;
+}
+
+.titulo {
+  font-family: var(--pd-font-heading);
+  font-size: 2.125rem;
+  font-weight: 800;
+  color: var(--pd-text-primary);
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+
+.bienvenida {
+  font-family: var(--pd-font-body);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--pd-text-body);
+  letter-spacing: -0.01em;
+}
+
+.bienvenida strong {
+  font-weight: 600;
+  color: var(--pd-primary);
+}
+
+.sinAlertas {
+  background: var(--pd-alert-ok-bg);
+  color: var(--pd-alert-ok-text);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.tarjetas {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.tarjeta {
+  flex: 1;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.tarjetaTitulo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--pd-font-heading);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* colores por variante */
+
+.rojo {
+  background: var(--pd-alert-expired-bg);
+}
+
+.rojo .tarjetaTitulo {
+  color: var(--pd-alert-expired-text);
+}
+
+.amarillo {
+  background: var(--pd-alert-soon-bg);
+}
+
+.amarillo .tarjetaTitulo {
+  color: var(--pd-alert-soon-text);
+}
+
+.naranja {
+  background: var(--pd-alert-stock-bg);
+}
+
+.naranja .tarjetaTitulo {
+  color: var(--pd-alert-stock-text);
+}
+
+/* items dentro de la tarjeta */
+
+.item {
+  padding: 0.5rem 1.25rem 0.625rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.nombre {
+  font-weight: 500;
+  color: var(--pd-text-primary);
+  font-size: 0.875rem;
+}
+
+.fecha {
+  color: var(--pd-text-muted);
+  font-size: 0.8rem;
+  margin-top: 0.125rem;
+}

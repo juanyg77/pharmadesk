@@ -1,0 +1,253 @@
+.page {
+  background: var(--pd-bg-main);
+  padding: 32px;
+  min-height: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  font-family: var(--pd-font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--pd-text-primary);
+}
+
+.btnAgregar {
+  background: var(--pd-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btnAgregar:hover {
+  opacity: 0.9;
+}
+
+/* Buscador */
+.buscador {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 14px;
+  border: 1px solid var(--pd-border);
+  border-radius: 8px;
+  background: var(--pd-bg-white);
+  font-size: 14px;
+  color: var(--pd-text-body);
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.buscador:focus {
+  border-color: var(--pd-primary);
+}
+
+/* Tabla */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--pd-bg-white);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--pd-border);
+}
+
+.tabla thead tr {
+  background: var(--pd-bg-card);
+}
+
+.tabla thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--pd-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--pd-border);
+}
+
+.tabla tbody tr:nth-child(even) {
+  background: var(--pd-bg-card);
+}
+
+.tabla tbody tr:nth-child(odd) {
+  background: var(--pd-bg-white);
+}
+
+.tabla tbody td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--pd-text-body);
+  border-bottom: 1px solid var(--pd-border);
+}
+
+/* Filas de alerta */
+.filaVencida td {
+  background: var(--pd-alert-expired-bg) !important;
+  color: var(--pd-alert-expired-text) !important;
+}
+
+.filaPorVencer td {
+  background: var(--pd-alert-soon-bg) !important;
+  color: var(--pd-alert-soon-text) !important;
+}
+
+/* Botones de acción */
+.btnEditar {
+  background: var(--pd-bg-card);
+  color: var(--pd-text-body);
+  border: 1px solid var(--pd-border-mid);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.btnEditar:hover {
+  background: var(--pd-border);
+}
+
+.btnEliminar {
+  background: var(--pd-error);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btnEliminar:hover {
+  opacity: 0.85;
+}
+
+/* Modal */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: var(--pd-bg-white);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  padding: 32px;
+  width: 560px;
+  max-width: 95vw;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.modalHeader h2 {
+  font-family: var(--pd-font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--pd-text-primary);
+}
+
+.btnCerrar {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: var(--pd-text-muted);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.btnCerrar:hover {
+  color: var(--pd-text-primary);
+}
+
+.grilla {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.grilla > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.grilla input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--pd-border);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--pd-text-body);
+  background: var(--pd-bg-white);
+  outline: none;
+}
+
+.grilla input:focus {
+  border-color: var(--pd-primary);
+}
+
+.error {
+  color: var(--pd-error);
+  background: var(--pd-error-bg);
+  border: 1px solid var(--pd-error-border);
+  border-radius: 5px;
+  padding: 3px 8px;
+  font-size: 11px;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btnGuardar {
+  background: var(--pd-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btnGuardar:hover {
+  opacity: 0.9;
+}
+
+.btnCancelar {
+  background: var(--pd-bg-card);
+  color: var(--pd-text-body);
+  border: 1px solid var(--pd-border-mid);
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btnCancelar:hover {
+  background: var(--pd-border);
+}

@@ -1,4 +1,11 @@
 import { useNavigate, NavLink } from 'react-router-dom';
+import {
+  IconLayoutDashboard,
+  IconPackages,
+  IconFileInvoice,
+  IconChartBar,
+  IconLogout,
+} from '@tabler/icons-react';
 import styles from './Sidebar.module.css';
 
 function Sidebar() {
@@ -18,14 +25,29 @@ function Sidebar() {
       </div>
 
       <nav className={styles.nav}>
-        <NavLink to="/dashboard" className={({ isActive }) => isActive ? styles.active : ''}>Dashboard</NavLink>
-        <NavLink to="/stock" className={({ isActive }) => isActive ? styles.active : ''}>Stock</NavLink>
-        <NavLink to="/facturas" className={({ isActive }) => isActive ? styles.active : ''}>Facturas</NavLink>
-        <NavLink to="/analisis" className={({ isActive }) => isActive ? styles.active : ''}>Análisis</NavLink>
+        <NavLink to="/dashboard" className={({ isActive }) => isActive ? styles.active : ''}>
+          <IconLayoutDashboard size={18} stroke={1.5} />
+          Dashboard
+        </NavLink>
+        <NavLink to="/stock" className={({ isActive }) => isActive ? styles.active : ''}>
+          <IconPackages size={18} stroke={1.5} />
+          Stock
+        </NavLink>
+        <NavLink to="/facturas" className={({ isActive }) => isActive ? styles.active : ''}>
+          <IconFileInvoice size={18} stroke={1.5} />
+          Facturas
+        </NavLink>
+        <NavLink to="/analisis" className={({ isActive }) => isActive ? styles.active : ''}>
+          <IconChartBar size={18} stroke={1.5} />
+          Análisis
+        </NavLink>
       </nav>
 
       <div className={styles.footer}>
-        <button onClick={cerrarSesion}>Cerrar sesión</button>
+        <button onClick={cerrarSesion}>
+          <IconLogout size={16} stroke={1.5} />
+          Cerrar sesión
+        </button>
       </div>
     </div>
   );
