@@ -19,6 +19,8 @@ function ModalMedicamento({ productoEditando, onGuardar, onCerrar }) {
   const [errorStockMinimo, setErrorStockMinimo] = useState('');
 
 
+
+
   useEffect(() => {
     
     if (productoEditando) {

@@ -32,6 +32,11 @@
   --pd-secondary: #4F46E5;
   --pd-secondary-light: #EEF2FF;
 
+  --pd-card-bg: #FFFFFF;
+  --pd-card-border: #E8E5DD;
+  --pd-card-positivo: #1F8C5A;
+  --pd-card-negativo: #D44A2E;
+
   --pd-error: #C0392B;
   --pd-error-bg: #FDECEC;
   --pd-error-border: #F5C6C6;
