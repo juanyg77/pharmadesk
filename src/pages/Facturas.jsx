@@ -15,11 +15,11 @@ function Facturas() {
 
   const facturasMedicamentos = facturas
     .filter((f) => f.categoria === 'medicamentos')
-    .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+    .sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
   const facturasPerfumeria = facturas
     .filter((f) => f.categoria === 'perfumeria')
-    .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+    .sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
   const handleGuardar = (datos) => {
     if (facturaEditando) {

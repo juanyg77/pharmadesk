@@ -3,6 +3,7 @@ import {
   IconLayoutDashboard,
   IconPackages,
   IconFileInvoice,
+  IconCashRegister,
   IconChartBar,
   IconLogout,
 } from '@tabler/icons-react';
@@ -32,6 +33,10 @@ function Sidebar() {
         <NavLink to="/stock" className={({ isActive }) => isActive ? styles.active : ''}>
           <IconPackages size={18} stroke={1.5} />
           Stock
+        </NavLink>
+        <NavLink to="/ventas" className={({ isActive }) => isActive ? styles.active : ''}>
+          <IconCashRegister size={18} stroke={1.5} />
+          Ventas
         </NavLink>
         <NavLink to="/facturas" className={({ isActive }) => isActive ? styles.active : ''}>
           <IconFileInvoice size={18} stroke={1.5} />
