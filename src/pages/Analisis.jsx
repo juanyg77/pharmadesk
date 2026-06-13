@@ -121,36 +121,36 @@ function Analisis() {
       <div className={styles.container}>
         <h1 className={styles.titulo}>Análisis</h1>
 
-        <div className={styles.cards}>
-          <div className={styles.card}>
-            <span className={styles.cardLabel}>Ganancia Medicamentos</span>
-            <span className={`${styles.cardValue} ${totalesMes.gananciaMedicamentos < 0 ? styles.negativo : styles.positivo}`}>
+        <div className={styles.tarjetasFinancieras}>
+          <div className={styles.tarjetaFinanciera}>
+            <span className={styles.etiquetaFinanciera}>Ganancia Medicamentos</span>
+            <span className={`${styles.valorFinanciero} ${totalesMes.gananciaMedicamentos < 0 ? styles.negativo : styles.positivo}`}>
               {formatARS(totalesMes.gananciaMedicamentos)}
             </span>
           </div>
-          <div className={styles.card}>
-            <span className={styles.cardLabel}>Ganancia Neta Perfumería</span>
-            <span className={`${styles.cardValue} ${totalesMes.gananciaNetaPerfumeria < 0 ? styles.negativo : styles.positivo}`}>
+          <div className={styles.tarjetaFinanciera}>
+            <span className={styles.etiquetaFinanciera}>Ganancia Neta Perfumería</span>
+            <span className={`${styles.valorFinanciero} ${totalesMes.gananciaNetaPerfumeria < 0 ? styles.negativo : styles.positivo}`}>
               {formatARS(totalesMes.gananciaNetaPerfumeria)}
             </span>
           </div>
-          <div className={styles.card}>
-            <span className={styles.cardLabel}>IVA a Pagar Estimado</span>
-            <span className={styles.cardValue}>
+          <div className={styles.tarjetaFinanciera}>
+            <span className={styles.etiquetaFinanciera}>IVA a Pagar Estimado</span>
+            <span className={styles.valorFinanciero}>
               {formatARS(totalesMes.ivaAPagar)}
             </span>
           </div>
-          <div className={styles.card}>
-            <span className={styles.cardLabel}>Ganancia Total del Mes</span>
-            <span className={`${styles.cardValue} ${gananciaTotal < 0 ? styles.negativo : styles.positivo}`}>
+          <div className={styles.tarjetaFinanciera}>
+            <span className={styles.etiquetaFinanciera}>Ganancia Total del Mes</span>
+            <span className={`${styles.valorFinanciero} ${gananciaTotal < 0 ? styles.negativo : styles.positivo}`}>
               {formatARS(gananciaTotal)}
             </span>
           </div>
         </div>
 
-        <div className={styles.chartsGrid}>
-          <div className={styles.chartCard}>
-            <h2 className={styles.chartTitulo}>Ventas vs Gastos del mes</h2>
+        <div className={styles.seccionGraficos}>
+          <div className={styles.panelGrafico}>
+            <h2 className={styles.tituloPanel}>Ventas vs Gastos del mes</h2>
             <ResponsiveContainer width="100%" height={260}>
               <BarChart data={datosGrafico} barCategoryGap="30%">
                 <XAxis dataKey="categoria" tick={{ fill: '#4A5E56', fontSize: 13 }} axisLine={false} tickLine={false} />
@@ -163,8 +163,8 @@ function Analisis() {
             </ResponsiveContainer>
           </div>
 
-          <div className={styles.chartCard}>
-            <h2 className={styles.chartTitulo}>Distribución de ventas del mes</h2>
+          <div className={styles.panelGrafico}>
+            <h2 className={styles.tituloPanel}>Distribución de ventas del mes</h2>
             {hayVentasMes ? (
               <ResponsiveContainer width="100%" height={260}>
                 <PieChart>
@@ -189,8 +189,8 @@ function Analisis() {
             )}
           </div>
 
-          <div className={`${styles.chartCard} ${styles.chartCardWide}`}>
-            <h2 className={styles.chartTitulo}>Ganancias: mes actual vs histórico acumulado</h2>
+          <div className={`${styles.panelGrafico} ${styles.panelGraficoAncho}`}>
+            <h2 className={styles.tituloPanel}>Ganancias: mes actual vs histórico acumulado</h2>
             <ResponsiveContainer width="100%" height={260}>
               <BarChart data={datosHistorico} barCategoryGap="30%">
                 <XAxis dataKey="categoria" tick={{ fill: '#4A5E56', fontSize: 13 }} axisLine={false} tickLine={false} />

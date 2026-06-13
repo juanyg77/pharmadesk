@@ -1,4 +1,4 @@
-import { useState, useEffect, use } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Stock.module.css';
 
 function ModalMedicamento({ productoEditando, onGuardar, onCerrar }) {

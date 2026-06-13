@@ -1,0 +1,41 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.contenido {
+  flex: 1;
+  padding: 1rem;
+  min-width: 0;
+}
+
+.menuHamburguesa {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: var(--pd-card-bg);
+  border: 1px solid var(--pd-card-border);
+  border-radius: 8px;
+  padding: 6px 8px;
+  cursor: pointer;
+  color: var(--pd-text-primary);
+  margin-bottom: 1rem;
+}
+
+.overlay {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menuHamburguesa {
+    display: flex;
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 150;
+  }
+}

@@ -33,7 +33,6 @@
   opacity: 0.9;
 }
 
-/* Buscador */
 .buscador {
   width: 100%;
   max-width: 400px;
@@ -51,7 +50,6 @@
   border-color: var(--pd-primary);
 }
 
-/* Tabla */
 .tabla {
   width: 100%;
   border-collapse: collapse;
@@ -101,7 +99,6 @@
   border-bottom: none;
 }
 
-/* Filas de alerta */
 .filaVencida td {
   background: var(--pd-alert-expired-bg) !important;
   color: var(--pd-alert-expired-text) !important;
@@ -112,7 +109,6 @@
   color: var(--pd-alert-soon-text) !important;
 }
 
-/* Botones de acción */
 .btnEditar {
   background: var(--pd-bg-card);
   color: var(--pd-text-body);
@@ -144,7 +140,6 @@
   opacity: 0.82;
 }
 
-/* Modal */
 .overlay {
   position: fixed;
   inset: 0;
@@ -222,7 +217,7 @@
   border-color: var(--pd-primary);
 }
 
-.grilla label {
+.label {
   font-size: 12px;
   font-weight: 600;
   color: var(--pd-text-muted);
@@ -300,5 +295,30 @@
 }
 
 .sugerenciaItem:hover {
-  background: var(--pd-bg-hover, var(--pd-border));
+  background: var(--pd-border);
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .buscador {
+    max-width: 100%;
+  }
+
+  .tabla {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .grilla {
+    grid-template-columns: 1fr;
+  }
 }

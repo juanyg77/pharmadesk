@@ -4,7 +4,6 @@
   min-height: 100%;
 }
 
-/* Header */
 .header {
   display: flex;
   align-items: center;
@@ -35,7 +34,6 @@
   opacity: 0.88;
 }
 
-/* Secciones */
 .seccion {
   margin-bottom: 40px;
 }
@@ -66,7 +64,6 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Tabla */
 .tabla {
   width: 100%;
   border-collapse: collapse;
@@ -124,14 +121,12 @@
   text-align: right;
 }
 
-/* Celda monto */
 .monto {
   font-weight: 600;
   color: var(--pd-primary);
   font-variant-numeric: tabular-nums;
 }
 
-/* Estado vacío */
 .vacio {
   text-align: center;
   padding: 28px 16px;
@@ -140,7 +135,6 @@
   font-style: italic;
 }
 
-/* Botones de acción */
 .btnEditar {
   background: var(--pd-bg-card);
   color: var(--pd-text-body);
@@ -170,4 +164,21 @@
 
 .btnEliminar:hover {
   opacity: 0.82;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .tabla {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }

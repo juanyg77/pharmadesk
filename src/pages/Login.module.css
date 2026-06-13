@@ -4,6 +4,7 @@
   justify-content: center;
   min-height: 100vh;
   background: var(--pd-bg-main);
+  padding: 1rem;
 }
 
 .card {
@@ -33,16 +34,16 @@
   outline: none;
 }
 
-.card button[type= "submit"]{
-    background: var(--pd-primary);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    width: 100%;
+.card button[type="submit"] {
+  background: var(--pd-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
 }
 
 .card input:focus {
@@ -85,4 +86,10 @@
   font-weight: 500;
   margin-top: -10px;
   margin-bottom: 4px;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1.5rem 1.25rem;
+  }
 }
