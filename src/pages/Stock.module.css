@@ -276,3 +276,29 @@
 .btnCancelar:hover {
   background: var(--pd-border);
 }
+
+.sugerencias {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  border: 1px solid var(--pd-border-mid);
+  border-radius: 6px;
+  background: var(--pd-bg-card);
+  max-height: 160px;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.sugerenciaItem {
+  padding: 8px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--pd-text-body);
+}
+
+.sugerenciaItem:hover {
+  background: var(--pd-bg-hover, var(--pd-border));
+}

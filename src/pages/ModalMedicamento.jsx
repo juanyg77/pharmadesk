@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import styles from './Stock.module.css';
 
 function ModalMedicamento({ productoEditando, onGuardar, onCerrar }) {
@@ -12,17 +12,18 @@ function ModalMedicamento({ productoEditando, onGuardar, onCerrar }) {
   const [precioVenta, setPrecioVenta] = useState('');
 
   const [errorNombre, setErrorNombre] = useState('');
+  const [errorDroga, setErrorDroga] = useState('');
   const [errorCantidad, setErrorCantidad] = useState('');
   const [errorVencimiento, setErrorVencimiento] = useState('');
   const [errorPrecioCosto, setErrorPrecioCosto] = useState('');
   const [errorPrecioVenta, setErrorPrecioVenta] = useState('');
   const [errorStockMinimo, setErrorStockMinimo] = useState('');
 
-
-
+  const [sugerencias, setSugerencias] = useState([]);
+  const [cargando, setCargando] = useState(false);
+  const [errorApi, setErrorApi] = useState('');
 
   useEffect(() => {
-    
     if (productoEditando) {
       setNombre(productoEditando.nombre);
       setLaboratorio(productoEditando.laboratorio);
@@ -44,8 +45,47 @@ function ModalMedicamento({ productoEditando, onGuardar, onCerrar }) {
     }
   }, [productoEditando]);
 
+  useEffect(() => {
+    if (droga.trim().length < 3) {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      const buscar = async () => {
+        setCargando(true);
+        setErrorApi('');
+        setSugerencias([]);
+
+        try {
+          const respuesta = await fetch(`https://rxnav.nlm.nih.gov/REST/drugs.json?name=${droga}`);
+          if (!respuesta.ok) throw new Error('HTTP error');
+          const data = await respuesta.json();
+
+          const grupos = data.drugGroup?.conceptGroup ?? [];
+          const listaMedicamentos = [];
+
+          grupos.forEach((grupo) => {
+            if (grupo.conceptProperties) {
+              listaMedicamentos.push(...grupo.conceptProperties);
+            }
+          });
+
+          setSugerencias(listaMedicamentos);
+        } catch {
+          setErrorApi('No se pudo conectar con la API');
+        } finally {
+          setCargando(false);
+        }
+      };
+      buscar();
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [droga]);
+
   const handleGuardar = () => {
     setErrorNombre('');
+    setErrorDroga('');
     setErrorCantidad('');
     setErrorVencimiento('');
     setErrorPrecioCosto('');
@@ -56,6 +96,10 @@ function ModalMedicamento({ productoEditando, onGuardar, onCerrar }) {
 
     if (!nombre || nombre.trim().length < 3) {
       setErrorNombre('El nombre debe tener al menos 3 caracteres');
+      valido = false;
+    }
+    if (!droga || droga.trim().length < 3) {
+      setErrorDroga('La droga debe tener al menos 3 caracteres');
       valido = false;
     }
     if (!cantidad || cantidad <= 0) {
@@ -102,7 +146,9 @@ function ModalMedicamento({ productoEditando, onGuardar, onCerrar }) {
       <div className={styles.modal}>
         <div className={styles.modalHeader}>
           <h2>{productoEditando ? 'Editar medicamento' : 'Agregar medicamento'}</h2>
-          <button className={styles.btnCerrar} onClick={onCerrar}>✕</button>
+          <button className={styles.btnCerrar} onClick={onCerrar}>
+            ✕
+          </button>
         </div>
 
         <div className={styles.grilla}>
@@ -123,13 +169,32 @@ function ModalMedicamento({ productoEditando, onGuardar, onCerrar }) {
               onChange={(e) => setLaboratorio(e.target.value)}
             />
           </div>
-          <div>
+          <div style={{ position: 'relative' }}>
             <input
               type="text"
               placeholder="Droga"
               value={droga}
               onChange={(e) => setDroga(e.target.value)}
             />
+            {errorDroga && <p className={styles.error}>{errorDroga}</p>}
+            {cargando && <p className={styles.error}>Buscando...</p>}
+            {!cargando && errorApi && <p className={styles.error}>{errorApi}</p>}
+            {!cargando && sugerencias.length > 0 && (
+              <ul className={styles.sugerencias}>
+                {sugerencias.slice(0, 5).map((s) => (
+                  <li
+                    key={s.rxcui}
+                    className={styles.sugerenciaItem}
+                    onClick={() => {
+                      setNombre(s.name);
+                      setSugerencias([]);
+                    }}
+                  >
+                    {s.name}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
           <div>
             <input
@@ -178,8 +243,12 @@ function ModalMedicamento({ productoEditando, onGuardar, onCerrar }) {
         </div>
 
         <div className={styles.modalFooter}>
-          <button className={styles.btnCancelar} onClick={onCerrar}>Cancelar</button>
-          <button className={styles.btnGuardar} onClick={handleGuardar}>Guardar</button>
+          <button className={styles.btnCancelar} onClick={onCerrar}>
+            Cancelar
+          </button>
+          <button className={styles.btnGuardar} onClick={handleGuardar}>
+            Guardar
+          </button>
         </div>
       </div>
     </div>
