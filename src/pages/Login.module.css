@@ -88,6 +88,26 @@
   margin-bottom: 4px;
 }
 
+.credencialesDemo {
+  background: var(--pd-primary-light);
+  border: 1px solid var(--pd-primary);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--pd-text-primary);
+  margin-bottom: 12px;
+}
+
+.credencialesTitulo {
+  font-weight: 600;
+  color: var(--pd-primary);
+  margin-bottom: 4px;
+}
+
+.credencialesDemo p {
+  margin: 2px 0;
+}
+
 @media (max-width: 480px) {
   .card {
     padding: 1.5rem 1.25rem;

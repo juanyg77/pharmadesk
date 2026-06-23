@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
+import { seedDemoData } from '../store/demoData';
 
 function Login() {
   const [usuario, setUsuario] = useState('');
@@ -32,6 +33,13 @@ function Login() {
     if (!loginValido) {
       return;
     }
+
+    if (usuario === 'demo' && contrasenia === 'demo123') {
+      seedDemoData();
+      window.location.href = '/dashboard';
+      return;
+    }
+
     const usuarioGuardado = localStorage.getItem('usuario');
     if (usuarioGuardado === usuario && localStorage.getItem('contrasenia') === contrasenia) {
       localStorage.setItem('logueado', 'true');
@@ -71,6 +79,12 @@ function Login() {
             {errorGeneral}
           </div>
         )}
+
+        <div className={styles.credencialesDemo}>
+          <p className={styles.credencialesTitulo}>Credenciales de prueba</p>
+          <p>Usuario: <strong>demo</strong></p>
+          <p>Contraseña: <strong>demo123</strong></p>
+        </div>
 
         <p>
           ¿Primera vez? <span onClick={() => navigate('/registro')}>Crear cuenta</span>
